@@ -1,17 +1,37 @@
-body {
-  background: url("./images/bg-1.png") no-repeat;
+html,body {
+  background: url("./images/drex.png") no-repeat;
   background-color: #070709;
-  color: white;
+  color:  #D7DFE4;
+  height: 100%; 
+  overflow: hidden;
 }
 
 .title {
-  color: white;
+  color:  #D7DFE4;
   margin-bottom: 1 rem;
 }
 
-.box {
-  margin-top: 50px;
+.address-box {
+    padding: 3em;
+    color: #D7DFE4;
 }
+/* .box {
+    color: #D7DFE4;
+    margin-top: 50px;
+} */
+.box {
+    background-color: #D7DFE4;
+    border-radius: 6px;
+    box-shadow: 0 0.5em 1em -0.125em rgb(10 10 10 / 10%), 0 0 0 1px rgb(10 10 10 / 2%);
+    color: #4a4a4a;
+    display: block;
+    padding: 1.25rem;
+    border: 2px solid #6C7A
+}
+.button {
+  font-size: small;
+}
+
 
 .panel {
   margin-top: 2em;
@@ -20,27 +40,39 @@ body {
 .panel-heading {
   xbackground-image: linear-gradient(to left,#38052F, #070709);
   background-color: black;
-  color: white;
+  color:  #D7DFE4;
+  font-size: medium;
 }
 
 .address-box {
   padding: 3em;
+  color: #D7DFE4;
+}
+
+.navbar-menu {
+  flex-grow: 1;
+  flex-shrink: 0;
+  margin-right: 20px;
 }
 
 .box .title {
   color: #333;
 }
 
-.navbar {
-  background-color: black;
+.navbar-menu {
+  flex-grow: 1;
+  flex-shrink: 0;
+  padding-top: 20px;
 }
 
+
 .navbar .navbar-item {
-  color: white;
+  color:  black;
 }
 
 .connect-wallet span {
-  color: #E10859;
+  max-width: 500px;
+  color: #6C7A97;
 }
 
 .connect-wallet:hover {
@@ -57,8 +89,20 @@ body {
 
 .withdraw-error {
   color: red;
+  padding-bottom: 22px;
 }
 
 .withdraw-success {
   color: green;
+  padding-bottom: 22px;
+}
+
+
+
+.faucet-hero-body {
+  margin-top: 100px;
+}
+
+h6 {
+  text-shadow: 0 0 3px #6C7A97, 0 0 5px #6C7A97;
 }

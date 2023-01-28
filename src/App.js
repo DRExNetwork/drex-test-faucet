@@ -89,7 +89,7 @@ function App() {
       console.log(sender_address.walletAddress)
       const resp = await faucetSigner.requestTokens()
       console.log(resp)
-      setWithdrawSuccess("Operation succeeded - enjoy your tokens!");
+      setWithdrawSuccess("Transaction success - tokens sent");
       setTransactionData(resp.hash);
     } catch (err) {
       setWithdrawError(err.message);
@@ -99,10 +99,7 @@ function App() {
 
   return (
     <div>
-      <nav className="navbar">
-        <div className="container">
-          <div className="navbar-brand">
-            <h1 className="navbar-item is-size-4">DREx Faucet</h1>
+          <div className="container">
           </div>
           <div id="navbarMenu" className="navbar-menu">
             <div className="navbar-end is-align-items-center">
@@ -112,22 +109,18 @@ function App() {
               >
                 <span className="is-link has-text-weight-bold">
                   {walletAddress && walletAddress.length > 0
-                    ? `Connected: ${walletAddress.substring(
-                        0,
-                        6
-                      )}...${walletAddress.substring(38)}`
+                    ? `Connected`
                     : "Connect Wallet"}
                 </span>
               </button>
             </div>
-          </div>
         </div>
-      </nav>
       <section className="hero is-fullheight">
         <div className="faucet-hero-body">
           <div className="container has-text-centered main-content">
-            <h1 className="title is-1">Faucet</h1>
-            <p>Fast and reliable. </p>
+          <h6 className="title is-1">DREx Faucet</h6>
+            <p>This faucet will dispense 500 test DAI and 500 DREx stablecoins
+            <p>These tokens have no monetary value</p></p>
             <div className="mt-5">
               {withdrawError && (
                 <div className="withdraw-error">{withdrawError}</div>
@@ -152,7 +145,7 @@ function App() {
                     onClick={getfaucetHandler}
                     disabled={walletAddress ? false : true}
                   >
-                    GET TOKENS
+                    Submit
                   </button>
                 </div>
               </div>
