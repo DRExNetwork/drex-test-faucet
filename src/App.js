@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import "./App.css";
 import { ethers } from "ethers";
-import faucet_contract  from "./ethereum/faucet";
+import faucet_contract from "./ethereum/faucet";
 function App() {
   const [walletAddress, setWalletAddress] = useState("");
   const [signer, setSigner] = useState();
@@ -20,7 +20,7 @@ function App() {
       try {
         /* get provider */
         const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const moonbeam = new ethers.providers.JsonRpcProvider('https://moonbeam-alpha.api.onfinality.io/public');
+        const moonbeam = new ethers.providers.JsonRpcProvider('https://rpc.api.moonbase.moonbeam.network');
         /* get accounts */
         const accounts = await provider.send("eth_requestAccounts", []);
         /* get signer */
@@ -44,7 +44,7 @@ function App() {
       try {
         /* get provider */
         const provider = new ethers.providers.Web3Provider(window.ethereum);
-        const moonbeam = new ethers.providers.JsonRpcProvider('https://moonbeam-alpha.api.onfinality.io/public');
+        const moonbeam = new ethers.providers.JsonRpcProvider('https://rpc.api.moonbase.moonbeam.network');
 
         /* get accounts */
         const accounts = await provider.send("eth_accounts", []);
@@ -85,9 +85,9 @@ function App() {
     try {
       const faucetSigner = faucetContract.connect(signer);
       console.log(faucetContract)
-      const sender_address = {walletAddress}
+      const sender_address = { walletAddress }
       console.log(sender_address.walletAddress)
-      const resp = await faucetSigner.requestTokens()
+      const resp = await faucetSigner.mint()
       console.log(resp)
       setWithdrawSuccess("Transaction success - tokens sent");
       setTransactionData(resp.hash);
@@ -99,28 +99,28 @@ function App() {
 
   return (
     <div>
-          <div className="container">
-          </div>
-          <div id="navbarMenu" className="navbar-menu">
-            <div className="navbar-end is-align-items-center">
-              <button
-                className="button is-white connect-wallet"
-                onClick={connectWallet}
-              >
-                <span className="is-link has-text-weight-bold">
-                  {walletAddress && walletAddress.length > 0
-                    ? `Connected`
-                    : "Connect Wallet"}
-                </span>
-              </button>
-            </div>
+      <div className="container">
+      </div>
+      <div id="navbarMenu" className="navbar-menu">
+        <div className="navbar-end is-align-items-center">
+          <button
+            className="button is-white connect-wallet"
+            onClick={connectWallet}
+          >
+            <span className="is-link has-text-weight-bold">
+              {walletAddress && walletAddress.length > 0
+                ? `Connected`
+                : "Connect Wallet"}
+            </span>
+          </button>
         </div>
+      </div>
       <section className="hero is-fullheight">
         <div className="faucet-hero-body">
           <div className="container has-text-centered main-content">
-          <h6 className="title is-1">DREx Faucet</h6>
-            <p>This faucet will dispense 500 test DAI and 500 DREx stablecoins
-            <p>These tokens have no monetary value</p></p>
+            <h6 className="title is-1">DREx Faucet</h6>
+            <p>This faucet will dispense 1000 mockUSDC tokens
+              <p>These tokens have no monetary value</p></p>
             <div className="mt-5">
               {withdrawError && (
                 <div className="withdraw-error">{withdrawError}</div>
