@@ -241,7 +241,18 @@ const faucet_abi = [
         "type": "function"
     },
     {
-        "inputs": [],
+        "inputs": [
+            {
+                "internalType": "address",
+                "name": "account",
+                "type": "address"
+            },
+            {
+                "internalType": "uint256",
+                "name": "amount",
+                "type": "uint256"
+            }
+        ],
         "name": "mint",
         "outputs": [],
         "stateMutability": "nonpayable",
@@ -343,7 +354,7 @@ const faucet_abi = [
 
 
 const faucet_contract = (provider) => {
-    return new ethers.Contract("0xf81b446594fEef316E3c839803DeA0024DCE6aD7", faucet_abi, provider);
+    return new ethers.Contract("0xd8a4DF4725E98Dd27d1C3b7eA30E326B85bA2dEc", faucet_abi, provider);
 }
 
 export default faucet_contract;

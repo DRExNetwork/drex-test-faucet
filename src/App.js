@@ -87,7 +87,7 @@ function App() {
       console.log(faucetContract)
       const sender_address = { walletAddress }
       console.log(sender_address.walletAddress)
-      const resp = await faucetSigner.mint()
+      const resp = await faucetSigner.mint(sender_address.walletAddress, ethers.utils.parseUnits("1000", 6));
       console.log(resp)
       setWithdrawSuccess("Transaction success - tokens sent");
       setTransactionData(resp.hash);
